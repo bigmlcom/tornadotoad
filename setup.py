@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name = 'tornadotoad',
     packages = ['tornadotoad'],
-    version = '0.1',
+    version = '0.1.1',
     author='Ivan Kanevski',
     author_email='kanevski@gmail.com',
     url='https://github.com/ephramzerb/tornadotoad',
