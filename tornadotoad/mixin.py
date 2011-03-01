@@ -40,8 +40,6 @@ def catcher(original, *args, **kwargs):
     """
     def wrapped_in_exceptions(*args, **kwargs):
         try:
-            print args
-            print kwargs
             original(*args, **kwargs)
         except Exception, e:
             tornado_toad = api.TornadoToad()

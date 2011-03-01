@@ -9,4 +9,5 @@ setup(
     url='https://github.com/ephramzerb/tornadotoad',
     description="Provides integration of hoptoad's exception notification service into a tornado app.",
     license="http://www.apache.org/licenses/LICENSE-2.0",
+    download_url="http://github.com/downloads/ephramzerb/tornadotoad/tornadotoad-v0.1.tar.gz"
 )
