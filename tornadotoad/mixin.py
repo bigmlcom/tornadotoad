@@ -18,7 +18,10 @@ class RequestHandler(object):
         
         if status_code == 403 and my.log_403 == False:
             return super(RequestHandler, self).send_error(status_code, **kwargs)
-            
+        
+        if status_code == 405 and my.log_405 == False:
+            return super(RequestHandler, self).send_error(status_code, **kwargs)
+    
         tornado_toad = api.TornadoToad()
         exception = kwargs['exception'] if 'exception' in kwargs else None
         if exception:
