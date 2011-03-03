@@ -13,12 +13,12 @@ class RequestHandler(object):
         class BaseHandler(tornadotoad.mixin.RequestHandler, tornado.web.RequestHandler):
     """
     def send_error(self, status_code, **kwargs):
-        if status_code == 404 and my.log_404 == False:
-            return super(RequestHandler, self).send_error(status_code, **kwargs)
-        
         if status_code == 403 and my.log_403 == False:
             return super(RequestHandler, self).send_error(status_code, **kwargs)
         
+        if status_code == 404 and my.log_404 == False:
+            return super(RequestHandler, self).send_error(status_code, **kwargs)
+                
         if status_code == 405 and my.log_405 == False:
             return super(RequestHandler, self).send_error(status_code, **kwargs)
     
