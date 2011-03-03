@@ -1,5 +1,5 @@
 ==================
-tornadotoad v 0.1
+tornadotoad v 0.2
 ==================
 
 tornadotoad allows one to integrate HoptoadApp.com's service to track exceptions 

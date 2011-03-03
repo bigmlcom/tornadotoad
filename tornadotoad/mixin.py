@@ -1,6 +1,7 @@
 import tornado
 
 from tornadotoad import api
+from tornadotoad import my
 
 class RequestHandler(object):
     """
@@ -11,12 +12,18 @@ class RequestHandler(object):
     
         class BaseHandler(tornadotoad.mixin.RequestHandler, tornado.web.RequestHandler):
     """
-    def send_error(self, arg, **kwargs):
+    def send_error(self, status_code, **kwargs):
+        if status_code == 404 and my.log_404 == False:
+            return super(RequestHandler, self).send_error(status_code, **kwargs)
+        
+        if status_code == 403 and my.log_403 == False:
+            return super(RequestHandler, self).send_error(status_code, **kwargs)
+            
         tornado_toad = api.TornadoToad()
         exception = kwargs['exception'] if 'exception' in kwargs else None
         if exception:
             tornado_toad.post_notice(exception, request=self._td_build_request_dict())
-        super(RequestHandler, self).send_error(arg, **kwargs)
+        return super(RequestHandler, self).send_error(status_code, **kwargs)
     
     def _td_build_request_dict(self):
         """

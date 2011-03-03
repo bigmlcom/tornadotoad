@@ -11,8 +11,8 @@ class TornadoToad(object):
     endpoint = "http://hoptoadapp.com/notifier_api/v2/"
     api_version = "2.0"
     notifier_name = "TornadoToad"
-    notifier_version = "0.1"
-    notifier_url = "http://github.com/ephramzerb/"
+    notifier_version = "0.2"
+    notifier_url = "http://github.com/ephramzerb/tornadotoad"
 
     def post_notice(self, exception, request=None):
         """
