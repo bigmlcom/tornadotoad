@@ -14,7 +14,7 @@ Basic Usage:
 
     import tornadotoad
   
-    tornadtoad.register(api_key='your-api-key', environment='production')
+    tornadotoad.register(api_key='your-api-key', environment='production')
   
 2) Add the tornadotoad mixin to your RequestHandler.
 
