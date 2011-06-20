@@ -4,12 +4,14 @@ from tornadotoad import api
 from tornadotoad import my
 
 class RequestHandler(object):
-    """
-    A mixin to be used with tornado tornado.web.RequestHandler that overrides exception handling.
+    """Mix in functionality for tornado tornado.web.RequestHandler objects
+    to override exception handling.
     
-    You probably have a modified tornado.web.RequestHandler that you use as the base class for all
-    your request handlers.  Just include this class and you're all set.
+    You probably have a modified tornado.web.RequestHandler that you use as
+    the base class for all your request handlers.  Just include this class
+    and you're all set.
     
+    example:
         class BaseHandler(tornadotoad.mixin.RequestHandler, tornado.web.RequestHandler):
     """
     def send_error(self, status_code, **kwargs):
@@ -29,9 +31,10 @@ class RequestHandler(object):
         return super(RequestHandler, self).send_error(status_code, **kwargs)
     
     def _td_build_request_dict(self):
-        """
-        Builds the dictionary that holds request details.  Flattens request arguments
-        into a comma-seperated string.
+        """Build a dict with request details to pass along to TornadoToad for
+        logging.
+        
+        Flattens request arguments into a comma-seperated string.
         """
         formatted_arguments = {}
         for key in self.request.arguments.keys():
@@ -45,8 +48,11 @@ class RequestHandler(object):
 
 
 def catcher(original, *args, **kwargs):
-    """
-    A function decorator that intercepts any exceptions and passes it along to hoptoad.
+    """A decorator to intercept exception in arbitrary functions and pass
+    along to Hoptoad.
+    
+    This is good for stand-alone scripts or something like celery tasks -
+    so you can log the exceptions in the same manner as your web application.
     """
     def wrapped_in_exceptions(*args, **kwargs):
         try:

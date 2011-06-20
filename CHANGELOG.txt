@@ -1,0 +1,6 @@
+0.3
+-----------
+ - Added "use_ssl" option for tornadotoad.register().  SSL option is only
+ available for paid hoptoad accounts.
+ - Added new HoptoadAPI().deploy() method that sends a deploy and "resolves"
+ all logged exceptions.
